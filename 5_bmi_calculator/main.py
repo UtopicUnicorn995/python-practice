@@ -15,7 +15,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setWindowTitle("BMI Calculator")
-        self.setFixedSize(300, 300)
+        self.setFixedSize(300, 350)
         self.bmi = 0
         self.layout = QVBoxLayout()
         weightLabel = QLabel("Weight(kg):")
@@ -37,7 +37,9 @@ class MainWindow(QMainWindow):
         
         calculate_btn = QPushButton(text='Calculate BMI')
         calculate_btn.clicked.connect(self.calculateBMI)
-        
+
+        self.layout.setContentsMargins(30, 10, 30, 10)
+
         self.layout.addWidget(weightLabel)
         self.layout.addWidget(self.weightInput)
         self.layout.addWidget(heightLabel)
