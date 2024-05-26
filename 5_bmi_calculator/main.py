@@ -53,8 +53,11 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(widget)
         
     def calculateBMI(self):
-        self.bmi = float(self.weightInput.text()) / ((float(self.heightInput.text()) / 100) ** 2  )
-        self.calculatedBMI.setText(f"Your BMI: {self.bmi}")
+        try:
+            self.bmi = float(self.weightInput.text()) / ((float(self.heightInput.text()) / 100) ** 2  )
+            self.calculatedBMI.setText(f"Your BMI: {self.bmi}")
+        except:
+            self.calculatedBMI.setText(f"Please try again and enter valid numbers.")
 
 app = QApplication(sys.argv)
 window = MainWindow()
