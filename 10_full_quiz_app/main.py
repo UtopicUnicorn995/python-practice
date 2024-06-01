@@ -1,4 +1,4 @@
-from tkinter import Tk, Label, Entry, Button
+from tkinter import Tk, Label, Entry, Button, Text
 import requests
 
 window = Tk()
@@ -6,8 +6,11 @@ window.title("Quiz Application")
 window.geometry('400x400+50+50')
 window.resizable(False, False)
 
+
 label = Label(window, text='Select a Quiz')
 label.pack(ipadx=20, ipady=50)
+
+text = Text(font="BOLD")
 
 
 def get_data():
@@ -23,6 +26,9 @@ def get_data():
 def get_questions():
     label = Label(window, text='Shit')
     label.pack(ipadx=20, ipady=20)
+    
+def get_choices():
+    pass
 
 def get_topic():
     topics = get_data().get('quizzes', [])
@@ -35,6 +41,7 @@ def get_topic():
 
 
 def main():
+    score = 0
     get_topic()
 
 if __name__ == "__main__":
